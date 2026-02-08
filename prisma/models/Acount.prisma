@@ -1,0 +1,23 @@
+model Account {
+  id            Int      @id @default(autoincrement())
+
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+
+  provider      String   // github, google, feishu ...
+  providerId    String   // github 返回的 id
+
+  username      String?
+  email         String?
+  avatar        String?
+
+  accessToken   String?  // 可选保存
+  refreshToken  String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([provider, providerId])
+
+  @@map("accounts")
+}

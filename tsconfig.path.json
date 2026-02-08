@@ -3,7 +3,9 @@
         "baseUrl": ".",
         "paths": {
             "@lib/*": ["lib/*"],
-            "@generated/*": ["generated/*"]
+            "@generated/*": ["generated/*"],
+            "@auth/*": ["src/auth/*"],
+
         }
     }
 }

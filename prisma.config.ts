@@ -4,8 +4,9 @@ import "dotenv/config";
 import { defineConfig } from "prisma/config";
 
 export default defineConfig({
-  // schema: "prisma", 这样配置就可以在prisma 文件里面写入models 然后拆开，避免schema.prisma 写太多了
-  schema: "prisma/schema.prisma",
+  // 这样配置就可以在prisma 文件里面写入models 然后拆开，避免schema.prisma 写太多了
+  schema: "prisma",
+  // schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
