@@ -4,9 +4,11 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// 因为自定义路径生成的 PrismaClient 并不在 node_modules，dist 打包后可能找不到，导致报错
+
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
   moduleFormat    = "cjs"
 }
 
