@@ -1,0 +1,50 @@
+# 依赖
+node_modules
+npm-debug.log
+pnpm-debug.log
+yarn-error.log
+
+# 构建产物（会在 Docker 中重新构建）
+dist
+build
+*.tsbuildinfo
+
+# 测试和覆盖率
+coverage
+.nyc_output
+*.test.ts
+*.spec.ts
+test
+
+# 开发工具
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# 环境变量文件（应该在运行时通过环境变量注入）
+.env
+.env.local
+.env.*.local
+
+# 文档
+README.md
+*.md
+
+# Docker 相关
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.*.yml
+
+# 其他
+.DS_Store
+Thumbs.db
+*.log
+
