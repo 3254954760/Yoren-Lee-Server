@@ -68,7 +68,7 @@ export class AuthService {
             });
         }
 
-        const payload = { sub: account.user.id, username: account.user.username };
+        const payload = { userId: account.user.id, username: account.user.username };
         return { access_token: this.jwtService.sign(payload) };
     }
 }
