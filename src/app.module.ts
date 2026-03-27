@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { VectorDBModule } from './vectorDB/vectorDB.module';
+import { RedisModule } from './redis/redis.module';
 import { ConfigModule } from '@nestjs/config';
 
 
@@ -15,6 +16,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     PrismaModule,
     VectorDBModule,
+    RedisModule,
     AuthModule,
   ],
   controllers: [AppController],
