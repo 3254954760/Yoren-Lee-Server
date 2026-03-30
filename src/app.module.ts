@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { VectorDBModule } from './vectorDB/vectorDB.module';
 import { RedisModule } from './redis/redis.module';
+import { ChatModule } from './chat/chat.module';
 import { ConfigModule } from '@nestjs/config';
 
 
@@ -18,6 +19,7 @@ import { ConfigModule } from '@nestjs/config';
     VectorDBModule,
     RedisModule,
     AuthModule,
+    ChatModule,
   ],
   controllers: [AppController],
   providers: [AppService],

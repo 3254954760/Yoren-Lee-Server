@@ -1,8 +1,9 @@
 model Message {
   id        Int      @id @default(autoincrement())
   sessionId Int
-  role      String // "user" | "assistant"
+  role      String // "user" | "assistant" | "system" | "tool"
   content   String   @db.Text
+  metadata  Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
