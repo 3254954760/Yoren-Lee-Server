@@ -112,6 +112,39 @@ export class SessionService {
     await this.redis.expire(this.redisKey(sessionId), this.REDIS_TTL);
   }
 
+  async getUserSessions(userId: number) {
+    return this.prisma.session.findMany({
+      where: { userId },
+      orderBy: { updatedAt: 'desc' },
+      select: {
+        id: true,
+        novelId: true,
+        title: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  }
+
+  async getSessionMessages(sessionId: number, userId: number) {
+    await this.getSession(sessionId, userId);
+
+    const messages = await this.prisma.message.findMany({
+      where: { sessionId },
+      orderBy: { createdAt: 'asc' },
+      select: {
+        id: true,
+        role: true,
+        content: true,
+        metadata: true,
+        createdAt: true,
+      },
+    });
+
+    return messages;
+  }
+
   async updateSummary(sessionId: number, summary: string) {
     await this.prisma.session.update({
       where: { id: sessionId },

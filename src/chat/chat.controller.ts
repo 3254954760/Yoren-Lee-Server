@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Get, Param, ParseIntPipe, Body, Res } from '@nestjs/common';
 import type { Response } from 'express';
 import { ChatService } from './chat.service';
 import { ChatDto } from './dto/chat.dto';
@@ -7,6 +7,19 @@ import { CurrentUser } from '../auth/decorators/current-user.decorator';
 @Controller('agent')
 export class ChatController {
   constructor(private chatService: ChatService) {}
+
+  @Get('sessions')
+  getSessions(@CurrentUser() user: { userId: number; username: string }) {
+    return this.chatService.getUserSessions(user.userId);
+  }
+
+  @Get('sessions/:id/messages')
+  getSessionMessages(
+    @Param('id', ParseIntPipe) id: number,
+    @CurrentUser() user: { userId: number; username: string },
+  ) {
+    return this.chatService.getSessionMessages(id, user.userId);
+  }
 
   /**
    * POST /agent/chat — SSE 流式对话

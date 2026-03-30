@@ -21,6 +21,14 @@ export class ChatService {
     private vectorDB: VectorDBService,
   ) {}
 
+  getUserSessions(userId: number) {
+    return this.sessionService.getUserSessions(userId);
+  }
+
+  getSessionMessages(sessionId: number, userId: number) {
+    return this.sessionService.getSessionMessages(sessionId, userId);
+  }
+
   chatStream(dto: ChatDto, userId: number): Observable<SseEvent> {
     return new Observable((subscriber: Subscriber<SseEvent>) => {
       this.handleStream(dto, userId, subscriber).catch((err) => {
