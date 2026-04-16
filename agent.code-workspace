@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "agent-server"
+        },
+        {
+            "path": "../create-react-web",
+            "name": "agent-frontend"
+        },
+        {
+            "path": "../note",
+            "name": "node"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/node_modules": true,
+            "**/.next": true,
+            "**/.turbo": true
+        }
+    }
+}
